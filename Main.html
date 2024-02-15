@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Menu</title>
+<link rel="stylesheet" type="text/css" href="MainStyle.css">
+<!-- Link to Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+<body>
+<div class="menu">
+  <h3>Menu</h3>
+  <ul>
+    <li><a href="#" onclick="showContent(event, 'content4')">Dashboard<a/></li>
+    <li><a href="#" onclick="showContent(event, 'content1')">Patients</a></li>
+    <li><a href="#" onclick="showContent(event, 'content2')">Staff</a></li>
+    <li><a href="#" onclick="showContent(event, 'content3')">Finace</a></li>
+  </ul>
+</div>
+<div class="account-info">
+  <i class="fas fa-user-circle"></i>
+</div>
+
+<div class="content hidden" id="content1">
+  <h2>Patients</h2>
+  <ul>
+    <li><a href="#" class="patient-info">View Patient Info</a></li>
+    <li><a href="#" class="admit-link">Admit Patients</a></li>
+    <li><a href="#" class="discharge-link">Discharge Patients</a></li>
+    <!-- Add other relevant options here -->
+  </ul>
+  <!-- Patient Search Section -->
+  <div id="patientSearch" class="hidden">
+    <h3>Patient Information</h3>
+    <label for="searchBy">Search by:</label>
+    <select id="searchBy">
+      <option value="name">Name</option>
+      <option value="id">ID</option>
+    </select>
+    <input type="text" id="searchInput">
+    <button id="searchButton">Search</button>
+    <div id="patientInfoTable"></div>
+  </div>
+</div>
+
+
+
+
+<div class="content hidden" id="content2">
+  <h2>Content 2</h2>
+  <p>This is the content for option 2.</p>
+</div>
+
+
+<div class="content hidden" id="content3">
+  <h2>Content 3</h2>
+  <p>This is the content for option 3.</p>
+</div>
+
+
+<div class="content hidden" id="content4">
+  <h2>Hospital Dashboard</h2>
+  <div class="dashboard-insights">
+    <div class="insight">
+      <h3>Patient Statistics</h3>
+      <canvas id="patientChart"></canvas>
+    </div>
+    <div class="insight">
+      <h3>Appointment Overview</h3>
+      <canvas id="appointmentChart"></canvas>
+    </div>
+    <div class="insight">
+      <h3>Staff Information</h3>
+      <p>Total staff: 300</p>
+      <p>Doctors: 50</p>
+      <p>Nurses: 150</p>
+      <p>Administrative: 100</p>
+    </div>
+    <div class="insight">
+      <h3>Beds Availability</h3>
+      <canvas id="bedsChart"></canvas>
+    </div>
+    <div class="insight">
+      <h3>Revenue Summary</h3>
+      <p>Total revenue: $200,000</p>
+      <p>Revenue this month: $30,000</p>
+      <p>Revenue last month: $25,000</p>
+    </div>
+  </div>
+</div>
+
+<!-- Link to Font Awesome library for icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script src="Funtionality.js"></script>
+</body>
+</html>

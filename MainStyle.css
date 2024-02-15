@@ -1,0 +1,340 @@
+/* Basic styling for the layout */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  display: flex;
+  height: 100vh; /* Set the body height to 100% of viewport height */
+}
+.menu {
+  width: 200px;
+  background-color: #343a40;
+  padding: 20px;
+  color: #fff;
+  height: 100%; /* Make the menu cover entire height */
+}
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.menu li {
+  margin-bottom: 10px;
+}
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.menu a:hover {
+  color: #f8f9fa;
+}
+.content {
+  flex: 1;
+  padding: 20px;
+  height: 100%; /* Make the content area cover entire height */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+.account-info {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #555;
+}
+.account-info i {
+  font-size: 24px;
+}
+h2 {
+  color: #343a40;
+}
+p {
+  color: #555;
+}
+.hidden {
+  display: none;
+}
+
+#content4 {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+#content4 h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.dashboard-insights {
+  display: flex;
+  justify-content: space-between;
+}
+
+.insight {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: calc(33.33% - 10px);
+}
+
+.insight h3 {
+  color: #555;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.insight p {
+  color: #777;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* CSS for Admission Form */
+#admissionForm {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+#admissionForm h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+#admissionForm label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#admissionForm input[type="text"],
+#admissionForm input[type="number"],
+#admissionForm select,
+#admissionForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#admissionForm button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#admissionForm button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* CSS for Discharge Form */
+#dischargeForm {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+#dischargeForm h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+#dischargeForm label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#dischargeForm input[type="text"],
+#dischargeForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#dischargeForm button[type="submit"] {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#dischargeForm button[type="submit"]:hover {
+  background-color: #d32f2f;
+}
+/* CSS for Patient Search Section */
+#patientSearch {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+#patientSearch h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+#patientSearch label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#patientSearch select,
+#patientSearch input[type="text"] {
+  width: calc(50% - 5px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#patientSearch button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#patientSearch button:hover {
+  background-color: #45a049;
+}
+
+#patientInfoTable {
+  margin-top: 20px;
+}
+
+#patientInfoTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#patientInfoTable th,
+#patientInfoTable td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#patientInfoTable th {
+  background-color: #f2f2f2;
+}
+
+/* CSS for Patients Content */
+#content1 {
+  padding: 20px;
+}
+
+#content1 h2 {
+  margin-top: 0;
+}
+
+/* CSS for Patient Options List within #content1 */
+#content1 ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#content1 ul li {
+  margin-bottom: 10px;
+}
+
+#content1 ul li a {
+  display: block;
+  padding: 10px 15px;
+  background-color: #f0f0f0;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#content1 ul li a:hover {
+  background-color: #e0e0e0;
+}
+
+/* CSS for Patient Search Section within #content1 */
+#content1 #patientSearch {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+#content1 #patientSearch h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+#content1 #patientSearch label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#content1 #patientSearch select,
+#content1 #patientSearch input[type="text"],
+#content1 #patientSearch button {
+  margin-bottom: 10px;
+}
+
+#content1 #patientSearch select,
+#content1 #patientSearch input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#content1 #patientSearch button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#content1 #patientSearch button:hover {
+  background-color: #45a049;
+}
+
+#content1 #patientInfoTable {
+  margin-top: 20px;
+}
+
+#content1 #patientInfoTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#content1 #patientInfoTable th,
+#content1 #patientInfoTable td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#content1 #patientInfoTable th {
+  background-color: #f2f2f2;
+}

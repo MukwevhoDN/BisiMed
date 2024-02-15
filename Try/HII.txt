@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Menu</title>
+<style>
+  /* Basic styling for the layout */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    display: flex;
+  }
+  .menu {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="menu">
+    <ul>
+      <li><a href="#" onclick="showContent('content1')">Option 1</a></li>
+      <li><a href="#" onclick="showContent('content2')">Option 2</a></li>
+      <li><a href="#" onclick="showContent('content3')">Option 3</a></li>
+    </ul>
+  </div>
+  <div class="content" id="content1">
+    <h2>Content 1</h2>
+    <p>This is the content for option 1.</p>
+  </div>
+  <div class="content hidden" id="content2">
+    <h2>Content 2</h2>
+    <p>This is the content for option 2.</p>
+  </div>
+  <div class="content hidden" id="content3">
+    <h2>Content 3</h2>
+    <p>This is the content for option 3.</p>
+  </div>
+</div>
+
+<script>
+function showContent(contentId) {
+  // Hide all content divs
+  var contents = document.getElementsByClassName('content');
+  for (var i = 0; i < contents.length; i++) {
+    contents[i].classList.add('hidden');
+  }
+
+  // Show the selected content div
+  var selectedContent = document.getElementById(contentId);
+  selectedContent.classList.remove('hidden');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Menu</title>
+<!-- Link to Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+  /* Basic styling for the layout */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    display: flex;
+    height: 100vh; /* Set the body height to 100% of viewport height */
+  }
+  .menu {
+    width: 200px;
+    background-color: #343a40;
+    padding: 20px;
+    color: #fff;
+    height: 100%; /* Make the menu cover entire height */
+  }
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .menu li {
+    margin-bottom: 10px;
+  }
+  .menu a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .menu a:hover {
+    color: #f8f9fa;
+  }
+  .content {
+    flex: 1;
+    padding: 20px;
+    height: 100%; /* Make the content area cover entire height */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  }
+  .account-info {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #555;
+  }
+  .account-info i {
+    font-size: 24px;
+  }
+  h2 {
+    color: #343a40;
+  }
+  p {
+    color: #555;
+  }
+  .hidden{
+       display:none;
+   }
+
+  #content4 {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+#content4 h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.dashboard-insights {
+  display: flex;
+  justify-content: space-between;
+}
+
+.insight {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: calc(33.33% - 10px);
+}
+
+.insight h3 {
+  color: #555;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.insight p {
+  color: #777;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+</style>
+</head>
+<body>
+<div class="menu">
+  <h3>Menu</h3>
+  <ul>
+    <li><a href="#" onclick="showContent(event, 'content4')">Dashboard<a/></li>
+    <li><a href="#" onclick="showContent(event, 'content1')">Option 1</a></li>
+    <li><a href="#" onclick="showContent(event, 'content2')">Option 2</a></li>
+    <li><a href="#" onclick="showContent(event, 'content3')">Option 3</a></li>
+  </ul>
+</div>
+<div class="account-info">
+  <i class="fas fa-user-circle"></i>
+</div>
+<div class="content" id="content1">
+  <h2>Content 1</h2>
+  <p>This is the content for option 1.</p>
+</div>
+<div class="content hidden" id="content2">
+  <h2>Content 2</h2>
+  <p>This is the content for option 2.</p>
+</div>
+<div class="content hidden" id="content3">
+  <h2>Content 3</h2>
+  <p>This is the content for option 3.</p>
+</div>
+<div class="content hidden" id="content4">
+  <h2>Hospital Dashboard</h2>
+  <div class="dashboard-insights">
+    <div class="insight">
+      <h3>Patient Statistics</h3>
+      <canvas id="patientChart"></canvas>
+    </div>
+    <div class="insight">
+      <h3>Appointment Overview</h3>
+      <canvas id="appointmentChart"></canvas>
+    </div>
+    <div class="insight">
+      <h3>Staff Information</h3>
+      <p>Total staff: 300</p>
+      <p>Doctors: 50</p>
+      <p>Nurses: 150</p>
+      <p>Administrative: 100</p>
+    </div>
+    <div class="insight">
+      <h3>Beds Availability</h3>
+      <canvas id="bedsChart"></canvas>
+    </div>
+    <div class="insight">
+      <h3>Revenue Summary</h3>
+      <p>Total revenue: $200,000</p>
+      <p>Revenue this month: $30,000</p>
+      <p>Revenue last month: $25,000</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Link to Font Awesome library for icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+<script>
+function showContent(event, contentId) {
+  event.preventDefault(); // Prevent default anchor behavior
+
+  // Hide all content divs
+  var contents = document.getElementsByClassName('content');
+  for (var i = 0; i < contents.length; i++) {
+    contents[i].classList.add('hidden');
+  }
+
+  // Show the selected content div
+  var selectedContent = document.getElementById(contentId);
+  selectedContent.classList.remove('hidden');
+}
+// Patient Statistics Chart
+var patientCtx = document.getElementById('patientChart').getContext('2d');
+var patientChart = new Chart(patientCtx, {
+    type: 'bar',
+    data: {
+        labels: ['Admitted', 'Outpatients'],
+        datasets: [{
+            label: 'Patient Statistics',
+            data: [150, 1850],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+// Appointment Overview Chart
+var appointmentCtx = document.getElementById('appointmentChart').getContext('2d');
+var appointmentChart = new Chart(appointmentCtx, {
+    type: 'pie',
+    data: {
+        labels: ['Upcoming', 'Missed'],
+        datasets: [{
+            label: 'Appointment Overview',
+            data: [80, 20],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(255, 205, 86, 0.2)',
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)',
+                'rgba(255, 205, 86, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        // Additional options here
+    }
+});
+
+// Beds Availability Chart
+var bedsCtx = document.getElementById('bedsChart').getContext('2d');
+var bedsChart = new Chart(bedsCtx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Occupied', 'Available'],
+        datasets: [{
+            label: 'Beds Availability',
+            data: [100, 100],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        // Additional options here
+    }
+});
+
+</script>
+</body>
+</html>
